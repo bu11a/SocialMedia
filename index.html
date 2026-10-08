@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Social</h1>
+        <div class="header-buttons">
+            <button id="favoriteBtn">
+                Favorite
+            </button>
+            <a href="auth.html" id="authBtn">
+                Auth
+            </a>
+            <button id="logoutBtn">
+                Logout
+            </button>
+        </div>
+    </header>
+    <main>
+        <h2>Posts</h2>
+        <div id="loader">
+            Loading...
+        </div>
+        <div id="postsContainer"></div>
+    </main>
+    <div id="favoriteModal" class="modal">
+        <div class="modal-content">
+            <button id="closeFavorite">×</button>
+            <h2>Favorite Posts</h2>
+            <div id="favoriteContainer"></div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
