@@ -22,6 +22,7 @@ export function register(login, password) {
     return true;
 }
 
+
 export function login(login, password) {
     const users = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -37,9 +38,11 @@ export function login(login, password) {
     return false;
 }
 
+
 export function logout() {
     localStorage.removeItem("currentUser");
 }
+
 
 export function getCurrentUser() {
     return JSON.parse(localStorage.getItem("currentUser"));

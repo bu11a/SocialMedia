@@ -24,10 +24,11 @@ async function start() {
         const posts = await getPosts();
         renderPosts(posts);
         initFavorites();
+        loader.style.display = "none";
     } catch (error) {
         console.log(error);
-        loader.textContent = "Ошибка загрузки";
+        loader.textContent = "Ошибка загрузки постов";
     }
-    loader.style.display = "none";
 }
+
 start();

@@ -430,3 +430,7 @@ main h2 {
         max-width: 95%;
     }
 }
+
+#logoutBtn {
+    display: none;
+}
