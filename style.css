@@ -10,9 +10,6 @@ body {
     color: #222;
 }
 
-
-/* HEADER */
-
 header {
     background-color: white;
     padding: 20px 40px;
@@ -62,9 +59,6 @@ header h1 {
     background-color: #444;
 }
 
-
-/* MAIN */
-
 main {
     width: 1000px;
     max-width: 90%;
@@ -76,9 +70,6 @@ main h2 {
     margin-bottom: 20px;
 }
 
-
-/* LOADER */
-
 #loader {
     text-align: center;
 
@@ -86,9 +77,6 @@ main h2 {
 
     padding: 40px;
 }
-
-
-/* POSTS */
 
 #postsContainer {
     display: grid;
@@ -128,9 +116,6 @@ main h2 {
     line-height: 1.5;
 }
 
-
-/* FAVORITE BUTTON */
-
 .favorite-button {
     padding: 8px 15px;
 
@@ -146,9 +131,6 @@ main h2 {
 .favorite-button:hover {
     background-color: #444;
 }
-
-
-/* FAVORITE MODAL */
 
 .modal {
     display: none;
@@ -193,9 +175,6 @@ main h2 {
     margin-bottom: 20px;
 }
 
-
-/* CLOSE */
-
 #closeFavorite {
     position: absolute;
 
@@ -220,9 +199,6 @@ main h2 {
     background-color: #444;
 }
 
-
-/* FAVORITE POSTS */
-
 #favoriteContainer {
     display: flex;
 
@@ -234,9 +210,6 @@ main h2 {
 #favoriteContainer .post {
     border: 1px solid #ddd;
 }
-
-
-/* IMAGE MODAL */
 
 .image-modal {
     position: fixed;
@@ -388,9 +361,6 @@ main h2 {
     margin: 30px 0;
 }
 
-
-/* MOBILE */
-
 @media (max-width: 700px) {
 
     header {
@@ -433,4 +403,276 @@ main h2 {
 
 #logoutBtn {
     display: none;
+}
+
+.filters {
+    display: flex;
+    gap: 15px;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.filters input,
+.filters select {
+    padding: 12px 15px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background: #1e1e1e;
+    color: white;
+    font-size: 15px;
+}
+
+.filters input {
+    flex: 1;
+    min-width: 0;
+}
+
+.filters select {
+    width: 220px;
+    cursor: pointer;
+}
+
+.filters input:focus,
+.filters select:focus {
+    outline: none;
+    border-color: #888;
+}
+
+.filters input::placeholder {
+    color: #aaa;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-buttons a,
+.header-buttons button {
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .filters {
+        flex-direction: column;
+    }
+
+    .filters select {
+        width: 100%;
+    }
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-buttons a,
+.header-buttons button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 10px 18px;
+    min-height: 40px;
+    font-size: 15px;
+    font-family: inherit;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+}
+
+.modal.active {
+    display: flex;
+}
+
+#addPostModal {
+    position: fixed;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+}
+
+#addPostModal .modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+#addPostForm {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+#addPostForm label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#addPostForm input,
+#addPostForm textarea,
+#addPostForm select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background: #1e1e1e;
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+#addPostForm textarea {
+    resize: vertical;
+}
+
+#addPostForm input:focus,
+#addPostForm textarea:focus,
+#addPostForm select:focus {
+    outline: none;
+    border-color: #888;
+}
+
+.publish-btn {
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: black;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.publish-btn:hover {
+    opacity: 0.8;
+}
+
+#addPostModal .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.not-interested-button {
+    padding: 8px 12px;
+    margin: 5px;
+    border: 1px solid #555;
+    border-radius: 8px;
+    background: #222;
+    color: white;
+    cursor: pointer;
+}
+
+.not-interested-button:hover {
+    background: #222;
+}
+
+.my-posts-main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.my-posts-main h2 {
+    margin-bottom: 10px;
+}
+
+#myPostsCount {
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+.my-post-card {
+    position: relative;
+}
+
+.my-post-description {
+    margin: 15px 0;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.my-post-category {
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.delete-post-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #d93636;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-post-button:hover {
+    background: #a82020;
+}
+
+.my-posts-back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 8px;
+    background: #292929;
+    color: white;
+    text-decoration: none;
+}
+
+.my-posts-back:hover {
+    background: #404040;
+}
+
+.empty-posts {
+    padding: 30px;
+    text-align: center;
+    color: #aaa;
 }

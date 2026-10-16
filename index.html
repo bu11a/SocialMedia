@@ -1,41 +1,84 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header>
+    <header class="header">
         <h1>Social</h1>
+
         <div class="header-buttons">
-            <button id="favoriteBtn">
-                Favorite
-            </button>
-            <a href="auth.html" id="authBtn">
-                Auth
-            </a>
-            <button id="logoutBtn">
-                Logout
-            </button>
+            <button id="favoriteBtn">Favorite</button>
+            <button id="addPostBtn">Add Post</button>
+            <a href="myposts.html" id="myPostsBtn">My Posts</a>
+            <a href="auth.html" id="authBtn">Log in</a>
+            <button id="logoutBtn">Log out</button>
         </div>
     </header>
+
     <main>
-        <h2>Posts</h2>
-        <div id="loader">
-            Loading...
+        <section class="filters">
+            <input type="text" id="searchInput" placeholder="Поиск по названию...">
+
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="technology">Technology</option>
+                <option value="games">Games</option>
+                <option value="lifestyle">Lifestyle</option>
+                <option value="other">Other</option>
+            </select>
+        </section>
+
+        <div id="favoritesModal" class="modal">
+            <div class="modal-content">
+                <button id="closeFavorites" class="close-btn">&times;</button>
+                <h2>Избранное</h2>
+                <div id="favoritesContainer"></div>
+            </div>
         </div>
-        <div id="postsContainer"></div>
+
+        <div id="addPostModal" class="modal">
+            <div class="modal-content">
+                <button id="closeAddPost" class="close-btn">&times;</button>
+
+                <h2>Добавить публикацию</h2>
+
+                <form id="addPostForm">
+                    <label for="postTitle">Название</label>
+                    <input type="text" id="postTitle" placeholder="Название публикации" required>
+
+                    <label for="postDescription">Описание</label>
+                    <textarea id="postDescription" placeholder="Напиши что-нибудь..." rows="5" required></textarea>
+
+                    <label for="postImage">Ссылка на изображение</label>
+                    <input type="url" id="postImage" placeholder="https://example.com/image.jpg">
+
+                    <label for="postCategory">Category</label>
+                    <select id="postCategory" required>
+                        <option value="technology">Technology</option>
+                        <option value="games">Games</option>
+                        <option value="lifestyle">Lifestyle</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <button type="submit" class="publish-btn">
+                        Publish
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <p id="loader">Load posts...</p>
+
+        <section id="postsContainer" class="posts-container"></section>
     </main>
-    <div id="favoriteModal" class="modal">
-        <div class="modal-content">
-            <button id="closeFavorite">×</button>
-            <h2>Favorite Posts</h2>
-            <div id="favoriteContainer"></div>
-        </div>
-    </div>
 
     <script type="module" src="./js/main.js"></script>
 </body>
+
 </html>

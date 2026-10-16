@@ -2,35 +2,49 @@ export function renderPosts(posts) {
     const postsContainer = document.querySelector("#postsContainer");
 
     postsContainer.innerHTML = "";
-    console.log(posts)
-    posts.forEach(function(post) {
+
+    posts.forEach(function (post) {
         const postElement = document.createElement("div");
 
         postElement.className = "post";
 
+        const image = post.image || (post.user && post.user.profile_pic) || "";
+        const description = post.description || post.main_content || post.body || "";
+        const author = post.author || (post.user && post.user.name) || "Unknown";
+
         postElement.innerHTML = `
-            <img
-                src="${post.user.profile_pic}"
-                alt="${post.title}"
-                class="post-image"
-            >
+            ${image ? `
+                <img
+                    src="${image}"
+                    alt="${post.title || "Post image"}"
+                    class="post-image"
+                >
+            ` : ""}
 
-            <h3>${post.title}</h3>
+            <h3>${post.title || "Untitled"}</h3>
 
-            ${post.main_content}
+            <p>${description}</p>
+
+            <p class="post-author">Автор: ${author}</p>
+
 
             <button class="favorite-button" data-id="${post.id}">
                 Favorite
             </button>
+
+            <button class="not-interested-button" data-id="${post.id}">
+                Not interested
+            </button>
+
         `;
 
         postsContainer.append(postElement);
     });
 
     const images = document.querySelectorAll(".post-image");
-    console.log(images)
-    images.forEach(function(image) {
-        image.addEventListener("click", function() {
+
+    images.forEach(function (image) {
+        image.addEventListener("click", function () {
             const imageModal = document.createElement("div");
 
             imageModal.className = "image-modal";
@@ -44,13 +58,20 @@ export function renderPosts(posts) {
 
             document.body.append(imageModal);
 
-            imageModal.querySelector(".close-image").addEventListener("click", function() {
+            imageModal.querySelector(".close-image").addEventListener("click", function () {
                 imageModal.remove();
             });
 
-            imageModal.addEventListener("click", function(event) {
+            imageModal.addEventListener("click", function (event) {
                 if (event.target === imageModal) {
                     imageModal.remove();
+                }
+            });
+
+            document.addEventListener("keydown", function closeOnEscape(event) {
+                if (event.key === "Escape") {
+                    imageModal.remove();
+                    document.removeEventListener("keydown", closeOnEscape);
                 }
             });
         });
